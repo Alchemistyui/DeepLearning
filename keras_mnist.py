@@ -63,7 +63,7 @@ y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
 # Sequential类
 model = Sequential()
 
-# # 建立模型
+# # # 建立模型
 # model.add(Dense(784, input_shape=(784,), kernel_initializer='he_normal'))
 # model.add(Activation('relu'))
 # # 防止过拟合
