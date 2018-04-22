@@ -24,8 +24,7 @@ x_test = x_test.reshape(len(x_test), -1)
 # uint不能有负数，先转为float类型
 x_train = x_train.astype('float32')
 x_test = x_test.astype('float32')
-# 数据归一化,减去均值除以范围,最终是0-1的范围,
-# 所以最后的激活函数应该是sigmoid,如果是-1~1,那么激活函数应该是tanh
+# 数据归一化
 x_train /= 255
 x_test /= 255
 
@@ -38,9 +37,11 @@ y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
 inputs = Input(shape=(784,))
 
 # a layer instance is callable on a tensor, and returns a tensor
-x = Dense(784, activation='relu', kernel_initializer='he_normal')(inputs)
+x = Dense(784, activation='relu', 
+    kernel_initializer='he_normal')(inputs)
 x = Dropout(0.2)(x)
-x = Dense(512, activation='relu', kernel_initializer='he_normal')(x)
+x = Dense(512, activation='relu', 
+    kernel_initializer='he_normal')(x)
 x = Dropout(0.2)(x)
 predictions = Dense(num_classes, activation='softmax')(x)
 

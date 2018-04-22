@@ -1,6 +1,20 @@
 import keras
 from keras.layers import Input, LSTM, Dense
 from keras.models import Model
+from keras.callbacks import ModelCheckpoint
+
+
+
+
+
+
+
+
+mckp = ModelCheckpoint('test.h5', 
+    monitor='val_loss', 
+    save_best_only=True)
+
+fit(callbacks=[mckp])
 
 # 将微博的数据转为（140，256）的矩阵，即每条微博有140个字符，每个单词的特征由一个256维的词向量表示，
 # 向量的每个元素为1表示某个字符出现，为0表示不出现，这是一个one-hot编码
@@ -16,6 +30,7 @@ shared_lstm = LSTM(64)
 # multiple times, the weights of the layer
 # are also being reused
 # (it is effectively *the same* layer)3
+# 对不同的输入共享同一层，就初始化该层一次，然后多次调用它
 encoded_a = shared_lstm(tweet_a)
 encoded_b = shared_lstm(tweet_b)
 
@@ -32,4 +47,4 @@ model = Model(inputs=[tweet_a, tweet_b], outputs=predictions)
 model.compile(optimizer='rmsprop',
               loss='binary_crossentropy',
               metrics=['accuracy'])
-model.fit([data_a, data_b], labels, epochs=10)
+history = model.fit([data_a, data_b], labels, epochs=10)
