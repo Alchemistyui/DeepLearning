@@ -7,6 +7,8 @@ from keras.layers import Input, Dense, Dropout
 from keras.layers import Conv2D, MaxPooling2D, Flatten
 from keras.models import Model
 from keras import backend as K
+from keras.utils import plot_model
+from keras.callbacks import TensorBoard
 
 
 # batch_size 太小会导致训练慢，过拟合等问题，太大会导致欠拟合。
@@ -86,8 +88,15 @@ model = Model(inputs=inputs, outputs=predictions)
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
+
+#将loss ，acc， val_loss ,val_acc记录tensorboard
+# tensorboard = TensorBoard(log_dir='./tmp/log', histogram_freq=1,write_graph=True,write_batch_performance=True)
+
+
 model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs,
- verbose=1, validation_data=(x_test, y_test))
+ verbose=1, validation_data=(x_test, y_test), callbacks=[TensorBoard(log_dir='./tmp/log')])
+
+plot_model(model, to_file='model.png',show_shapes=True)
 
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
