@@ -7,7 +7,7 @@ from keras.layers import Input, Dense, Dropout
 from keras.layers import Conv2D, MaxPooling2D, Flatten
 from keras.models import Model
 from keras import backend as K
-from keras.utils import plot_model
+# from keras.utils import plot_model
 from keras.callbacks import TensorBoard
 
 
@@ -47,8 +47,10 @@ y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
 
 # # This returns a tensor
 # inputs = Input(shape=(784,))
+
+
 inputs = Input(shape=(28, 28, 1))
-# input_shape = (img_rows, img_cols, 1)
+
 
 
 
@@ -73,7 +75,7 @@ predictions = Dense(num_classes, activation='softmax')(x)
 
 
 
-# a layer instance is callable on a tensor, and returns a tensor
+# # a layer instance is callable on a tensor, and returns a tensor
 # x = Dense(784, activation='relu', 
 #     kernel_initializer='he_normal')(inputs)
 # x = Dropout(0.2)(x)
@@ -81,6 +83,9 @@ predictions = Dense(num_classes, activation='softmax')(x)
 #     kernel_initializer='he_normal')(x)
 # x = Dropout(0.2)(x)
 # predictions = Dense(num_classes, activation='softmax')(x)
+
+
+
 
 # This creates a model that includes
 # the Input layer and three Dense layers
@@ -96,7 +101,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs,
  verbose=1, validation_data=(x_test, y_test), callbacks=[TensorBoard(log_dir='./tmp/log')])
 
-plot_model(model, to_file='model.png',show_shapes=True)
+# plot_model(model, to_file='model.png',show_shapes=True)
 
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
