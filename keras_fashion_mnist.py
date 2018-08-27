@@ -19,6 +19,8 @@ num_classes = 10
 epochs = 12
 # 输入的图片是28*28像素的灰度图
 img_rows, img_cols = 28, 28
+
+
 # 训练集，测试集
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
 
@@ -67,7 +69,7 @@ x = Dropout(0.2)(x)
 x = Flatten()(x)
 # 对所有像素使用全连接层，输出为128，激活函数选用relu
 x = Dense(128, activation='relu')(x)
-# 对输入采用0.5概率的Dropout
+# 对输入采用0.2概率的Dropout
 x = Dropout(0.2)(x)
 # 对刚才Dropout的输出采用softmax激活函数，得到最后结果0-9
 predictions = Dense(num_classes, activation='softmax')(x)
