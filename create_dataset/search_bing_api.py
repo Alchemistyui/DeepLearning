@@ -23,8 +23,9 @@ args = vars(ap.parse_args())
 # set your Microsoft Cognitive Services API key along with (1) the
 # maximum number of results for a given search and (2) the group size
 # for results (maximum of 50 per request)
-API_KEY = "38ced9e874324b45884a1b68d41e837a"
-MAX_RESULTS = 250
+# ed0c83512be949cda1a8e8962855fbec
+API_KEY = "a7adce64e9194e39a1bf529fb3971003"
+MAX_RESULTS = 350
 GROUP_SIZE = 50
 
 # set the endpoint API URL
@@ -120,3 +121,15 @@ for offset in range(0, estNumResults, GROUP_SIZE):
 
 # mkdir dataset/yui
 # python3 search_bing_api.py --query "yui yoshioka" --output dataset/yui
+# python3 search_bing_api.py --query "Volkswagen front" --output dataset/Volkswagen
+# python3 search_bing_api.py --query "Citroen front" --output dataset/Citroen
+# python3 search_bing_api.py --query "PEUGEOT front" --output dataset/PEUGEOT
+# python3 search_bing_api.py --query "KIA front" --output dataset/KIA
+# python3 search_bing_api.py --query "Mazda front" --output dataset/Mazda
+# python3 search_bing_api.py --query "HYUNDAI front" --output dataset/HYUNDAI
+# python3 search_bing_api.py --query "Mazda front" --output dataset/Mazda
+
+
+
+
+
