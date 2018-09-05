@@ -121,13 +121,19 @@ for offset in range(0, estNumResults, GROUP_SIZE):
 
 # mkdir dataset/yui
 # python3 search_bing_api.py --query "yui yoshioka" --output dataset/yui
-# python3 search_bing_api.py --query "Volkswagen front" --output dataset/Volkswagen
-# python3 search_bing_api.py --query "Citroen front" --output dataset/Citroen
+# python3 search_bing_api.py --query "BMW front" --output dataset/BMW
 # python3 search_bing_api.py --query "PEUGEOT front" --output dataset/PEUGEOT
 # python3 search_bing_api.py --query "KIA front" --output dataset/KIA
 # python3 search_bing_api.py --query "Mazda front" --output dataset/Mazda
 # python3 search_bing_api.py --query "HYUNDAI front" --output dataset/HYUNDAI
-# python3 search_bing_api.py --query "Mazda front" --output dataset/Mazda
+# python3 search_bing_api.py --query "Chevrolet front" --output dataset/Chevrolet
+# python3 search_bing_api.py --query "Volkswagen front" --output dataset/Volkswagen
+# python3 search_bing_api.py --query "Buick front" --output dataset/Buick
+# python3 search_bing_api.py --query "Honda front" --output dataset/Honda
+# python3 search_bing_api.py --query "nissan front" --output dataset/nissan
+# python3 search_bing_api.py --query "Volvo front" --output dataset/Volvo
+
+
 
 
 
